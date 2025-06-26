@@ -1,0 +1,133 @@
+import React, { useState } from "react";
+
+export default function CryptoSunLandingPage() {
+  const [lang, setLang] = useState("ar");
+
+  const content = {
+    ar: {
+      title: "CryptoSun",
+      subtitle: "تعدين البيتكوين باستخدام الطاقة الشمسية",
+      vision: "رؤية المشروع",
+      visionText:
+        "يهدف مشروع CryptoSun إلى إنشاء مزرعة تعدين بيتكوين في الإمارات تعتمد كلياً على الطاقة الشمسية، لتقليل التكاليف التشغيلية وتحقيق أرباح مستدامة وصديقة للبيئة.",
+      features: "مميزات المشروع",
+      specs: "تفاصيل فنية",
+      invest: "هل ترغب في الاستثمار؟",
+      investText:
+        "نحن نبحث عن مستثمرين استراتيجيين للمشاركة في المرحلة الأولى من المشروع. اتصل بنا الآن لطلب العرض الكامل أو لزيارة الموقع.",
+      contact: "تواصل معنا",
+      name: "الاسم الكامل",
+      email: "البريد الإلكتروني",
+      message: "رسالتك",
+      send: "إرسال",
+      footer: "© 2025 CryptoSun - جميع الحقوق محفوظة"
+    },
+    en: {
+      title: "CryptoSun",
+      subtitle: "Bitcoin Mining Powered by Solar Energy",
+      vision: "Project Vision",
+      visionText:
+        "CryptoSun aims to establish a Bitcoin mining farm in the UAE that relies entirely on solar energy, reducing operational costs and generating sustainable, eco-friendly profits.",
+      features: "Project Features",
+      specs: "Technical Details",
+      invest: "Interested in Investing?",
+      investText:
+        "We are seeking strategic investors for the first phase of the project. Contact us now to request the full deck or schedule a site visit.",
+      contact: "Contact Us",
+      name: "Full Name",
+      email: "Email Address",
+      message: "Your Message",
+      send: "Send",
+      footer: "© 2025 CryptoSun - All rights reserved"
+    }
+  };
+
+  const t = content[lang];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-black text-white p-8">
+      <header className="text-center mb-16">
+        <img
+          src="/cryptosun-logo.png"
+          alt="CryptoSun Logo"
+          className="mx-auto mb-4 w-28 h-28"
+        />
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">{t.title}</h1>
+        <p className="text-lg md:text-xl text-yellow-400">{t.subtitle}</p>
+        <div className="mt-4">
+          <button
+            className={`mx-2 px-4 py-1 rounded ${
+              lang === "ar" ? "bg-yellow-400 text-black" : "bg-gray-700"
+            }`}
+            onClick={() => setLang("ar")}
+          >
+            العربية
+          </button>
+          <button
+            className={`mx-2 px-4 py-1 rounded ${
+              lang === "en" ? "bg-yellow-400 text-black" : "bg-gray-700"
+            }`}
+            onClick={() => setLang("en")}
+          >
+            English
+          </button>
+        </div>
+      </header>
+
+      <section className="max-w-4xl mx-auto mb-20 text-center">
+        <h2 className="text-2xl font-semibold mb-4">{t.vision}</h2>
+        <p className="text-lg">{t.visionText}</p>
+      </section>
+
+      <section className="max-w-5xl mx-auto mb-20 grid md:grid-cols-2 gap-12">
+        <div>
+          <h3 className="text-xl font-semibold text-yellow-400 mb-2">{t.features}</h3>
+          <ul className="list-disc list-inside space-y-2">
+            <li>{lang === "ar" ? "تقليل تكلفة الكهرباء باستخدام الطاقة الشمسية" : "Reduced electricity costs via solar energy"}</li>
+            <li>{lang === "ar" ? "ربحية عالية من تعدين البيتكوين" : "High profitability from Bitcoin mining"}</li>
+            <li>{lang === "ar" ? "موقع آمن ومستقر في الإمارات" : "Secure and stable UAE location"}</li>
+            <li>{lang === "ar" ? "قابلية للتوسع المستقبلي بسهولة" : "Easy future scalability"}</li>
+          </ul>
+        </div>
+        <div>
+          <h3 className="text-xl font-semibold text-yellow-400 mb-2">{t.specs}</h3>
+          <ul className="list-disc list-inside space-y-2">
+            <li>{lang === "ar" ? "المساحة: 2000 متر مربع" : "Area: 2000 m²"}</li>
+            <li>{lang === "ar" ? "عدد الأجهزة: 150 جهاز Antminer" : "Devices: 150 Antminer units"}</li>
+            <li>{lang === "ar" ? "الطاقة: 500 كيلوواط من الطاقة الشمسية" : "Power: 500 kW solar capacity"}</li>
+            <li>{lang === "ar" ? "الربح المتوقع: +33,000 دولار شهريًا" : "Expected profit: $33,000+/month"}</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="max-w-3xl mx-auto text-center mb-20">
+        <h2 className="text-2xl font-semibold mb-4">{t.invest}</h2>
+        <p className="mb-6">{t.investText}</p>
+        <form className="flex flex-col space-y-4 items-center">
+          <input
+            type="text"
+            placeholder={t.name}
+            className="w-full max-w-md p-3 rounded bg-gray-800 text-white border border-gray-600"
+          />
+          <input
+            type="email"
+            placeholder={t.email}
+            className="w-full max-w-md p-3 rounded bg-gray-800 text-white border border-gray-600"
+          />
+          <textarea
+            placeholder={t.message}
+            className="w-full max-w-md p-3 h-32 rounded bg-gray-800 text-white border border-gray-600"
+          ></textarea>
+          <button className="bg-yellow-400 text-black font-semibold px-6 py-3 rounded-full hover:bg-yellow-300 transition">
+            {t.send}
+          </button>
+        </form>
+      </section>
+
+      <footer className="text-center text-sm text-gray-400 border-t border-gray-700 pt-8">
+        {t.footer}
+      </footer>
+    </div>
+  );
+}
+
